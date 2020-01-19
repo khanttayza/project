@@ -185,6 +185,7 @@ public class App
 
         // Print employees' salaries
         a.printSalaries(employees);
+        System.out.println("do something");
 
         // Disconnect from database
         a.disconnect();
