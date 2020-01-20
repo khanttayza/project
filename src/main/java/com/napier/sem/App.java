@@ -182,7 +182,8 @@ public class App
 
         // Extract employee salary information
         ArrayList<Employee> employees = a.getAllSalaries();
-        
+
+        a.printSalaries(employees);
         System.out.println("do something");
 
         // Disconnect from database
