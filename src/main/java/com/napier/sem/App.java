@@ -183,8 +183,8 @@ public class App
         // Extract employee salary information
         ArrayList<Employee> employees = a.getAllSalaries();
 
-        a.printSalaries(employees);
-        System.out.println("do something");
+
+        System.out.println("Hi, everyone!");
 
         // Disconnect from database
         a.disconnect();
