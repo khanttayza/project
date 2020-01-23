@@ -1,7 +1,11 @@
 package com.napier.sem;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class App
 {
@@ -180,13 +184,40 @@ public class App
         // Connect to database
         a.connect();
 
-        // Extract employee salary information
-        ArrayList<Employee> employees = a.getAllSalaries();
-
-
-        System.out.println("Hi, everyone!");
+        // Console Menu System integration
+        int option = 0;
+        a.perform(option, a);
 
         // Disconnect from database
         a.disconnect();
+    }
+
+    private int getInput() {
+        int choice = -1;
+        Scanner input = new Scanner(System.in);
+        while(choice < 0 || choice > 2) {
+            try {
+                System.out.print("Enter your choice: ");
+                choice = Integer.parseInt(input.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid selection. Please try again.");
+            }
+        }
+        return choice;
+    }
+
+    private void perform(int coa, App a) {
+        switch(coa) {
+            case 0:
+                ArrayList<Employee> emps = a.getAllSalaries();
+                System.out.println(emps.size());
+                break;
+            case 1:
+                System.out.println("This is case 1.");
+                break;
+            default:
+                System.out.println("An unknown error has occurred.");
+                break;
+        }
     }
 }
